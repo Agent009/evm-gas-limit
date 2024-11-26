@@ -1,0 +1,25 @@
+{
+  "name": "evm-gas-limit",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "check-types": "tsc --noEmit",
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "hh:accounts": "hardhat accounts",
+    "hh:clean": "hardhat clean",
+    "ballot:gas-limit": "hardhat run ./scripts/GasLimit.ts"
+  },
+  "author": "Mohammad Amir <amir@connextar.com>",
+  "license": "ISC",
+  "description": "Encode EVM BC 2024 Q4 - Lesson 18 - EVM Gas Limit Experimentation",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox-viem": "^3.0.0",
+    "hardhat": "^2.22.15",
+    "random-words": "^1.3.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "typescript": "^5"
+  }
+}
