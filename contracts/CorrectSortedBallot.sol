@@ -7,10 +7,11 @@ contract CorrectSortedBallot {
         uint256 voteCount;
     }
 
+    // State variables
     Proposal[] public proposals;
     Proposal[] public proposalsBeingSorted;
     uint256 public swaps;
-    uint256 public sortedWords;
+    uint256 public sortedWords; // to check if we've finished sorting
     uint256 public savedIndex;
 
     constructor(bytes32[] memory proposalNames) {
@@ -32,7 +33,27 @@ contract CorrectSortedBallot {
         uint256 step = 0;
         while (sortedWords < proposalsBeingSorted.length) {
             if (step >= steps) return (false);
-            // TODO
+
+            if (savedIndex >= proposalsBeingSorted.length) {
+                // We are at the end of the array
+                sortedWords = proposalsBeingSorted.length - swaps;
+                swaps = 0;
+                savedIndex = 1;
+            } else {
+                Proposal memory prevObj = proposalsBeingSorted[savedIndex - 1];
+                // We are not at the end of the array
+                if (
+                    uint256(prevObj.name) >
+                    uint256(proposalsBeingSorted[savedIndex].name)
+                ) {
+                    proposalsBeingSorted[savedIndex - 1] = proposalsBeingSorted[
+                        savedIndex
+                    ];
+                    proposalsBeingSorted[savedIndex] = prevObj;
+                    swaps++;
+                }
+                savedIndex++;
+            }
             step++;
         }
         proposals = proposalsBeingSorted;
