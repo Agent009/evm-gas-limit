@@ -10,7 +10,6 @@ npx hardhat node
 ## Scripts
 
 ```bash
-npm run deploy:hh:sepolia
-npm run get-proposal 0
-npm run cast-vote 0
+npm run sorted:test
+npm run correct-sorted:test
 ```

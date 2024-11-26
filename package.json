@@ -8,7 +8,8 @@
     "test": "hardhat test",
     "hh:accounts": "hardhat accounts",
     "hh:clean": "hardhat clean",
-    "ballot:gas-limit": "hardhat run ./scripts/GasLimit.ts"
+    "sorted:test": "hardhat run ./scripts/SortedBallot/Test.ts",
+    "correct-sorted:test": "hardhat run scripts/CorrectSortedBallot/Test.ts"
   },
   "author": "Mohammad Amir <amir@connextar.com>",
   "license": "ISC",
